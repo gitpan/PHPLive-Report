@@ -2,7 +2,7 @@ NAME
     PHPLive::Report - Generate reports for PHPLive!
 
 VERSION
-    This document describes version 0.01 of PHPLive::Report (from Perl
+    This document describes version 0.02 of PHPLive::Report (from Perl
     distribution PHPLive-Report), released on 2014-07-24.
 
 SYNOPSIS
@@ -15,7 +15,7 @@ DESCRIPTION
     reports for your PHP Live! installation.
 
   Legends
-    Report items should be obvious from their names, but here are the
+    Report items should be obvious from their names, but here is the
     explanation:
 
    Chat reports

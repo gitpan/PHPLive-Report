@@ -1,7 +1,7 @@
 #!perl
 
 our $DATE = '2014-07-24'; # DATE
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 use 5.010001;
 use strict;
@@ -81,13 +81,17 @@ gen-phplive-reports - Generate additional reports for PHPLive!
 
 =head1 VERSION
 
-This document describes version 0.01 of gen-phplive-reports (from Perl distribution PHPLive-Report), released on 2014-07-24.
+This document describes version 0.02 of gen-phplive-reports (from Perl distribution PHPLive-Report), released on 2014-07-24.
 
 =head1 SYNOPSIS
 
  % gen-phplive-reports --db-dsn dbi:mysql:dbname=PHPLIVE --db-user PHPLIVE --db-pass SECRET --year 2014 --month 7
 
-Will produce C<phplive-reports-YYYYMM.html> file in current directory.
+Will produce C<phplive-reports-YYYY-MM.html> file in current directory.
+
+To make nice sortable tables, I use jQuery tablesorter plugin,
+L<http://tablesorter.com/>. Drop the jQuery as well as the tablesorter files
+into the same directory as the reports.
 
 =head1 SEE ALSO
 

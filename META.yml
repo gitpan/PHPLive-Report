@@ -28,7 +28,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=PHPLive-Report
   homepage: https://metacpan.org/release/PHPLive-Report
   repository: git://github.com/sharyanto/perl-PHPLive-Report.git
-version: '0.01'
+version: '0.02'
 x_Dist_Zilla:
   perl:
     version: '5.018002'

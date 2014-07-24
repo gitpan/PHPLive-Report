@@ -1,7 +1,7 @@
 package PHPLive::Report;
 
 our $DATE = '2014-07-24'; # DATE
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 use 5.010;
 use strict;
@@ -242,7 +242,7 @@ PHPLive::Report - Generate reports for PHPLive!
 
 =head1 VERSION
 
-This document describes version 0.01 of PHPLive::Report (from Perl distribution PHPLive-Report), released on 2014-07-24.
+This document describes version 0.02 of PHPLive::Report (from Perl distribution PHPLive-Report), released on 2014-07-24.
 
 =head1 SYNOPSIS
 
@@ -257,7 +257,7 @@ for your PHP Live! installation.
 
 =head2 Legends
 
-Report items should be obvious from their names, but here are the explanation:
+Report items should be obvious from their names, but here is the explanation:
 
 =head3 Chat reports
 
