@@ -1,7 +1,7 @@
 package PHPLive::Report;
 
-our $DATE = '2014-07-24'; # DATE
-our $VERSION = '0.02'; # VERSION
+our $DATE = '2014-07-25'; # DATE
+our $VERSION = '0.03'; # VERSION
 
 use 5.010;
 use strict;
@@ -10,9 +10,29 @@ use Log::Any '$log';
 
 require Exporter;
 our @ISA       = qw(Exporter);
-our @EXPORT_OK = qw(parse_phplive_transcript);
+our @EXPORT_OK = qw(parse_phplive_transcript %reports %legends);
 
 our %SPEC;
+
+our %reports = (
+    chat_report => 'Chat reports',
+    chat_report_by_dept => 'Chat report by department',
+    chat_report_by_op => 'Chat report by operator',
+);
+
+our %legends = (
+    pct_rated => 'Percentage of chats that are rated by clients',
+    pct_has_transfers => 'Percentage of chats that involve a transfer of operators',
+    avg_chat_duration => 'Average chat duration, in minutes',
+    avg_rating => 'Average chat rating from clients (counted over chats that are rated only)',
+    num_chats => 'Number of chats',
+    avg_msg_lines => 'Average number of message lines in a single chat. Note that non-message lines are excluded',
+    avg_msg_words => 'Average number of words in a single chat. Note that the username prefix in message lines and non-message lines are excluded',
+    avg_msg_chars => 'Average number of characters in a single chat. Like in "avg_msg_words", the username prefix in message lines and non-message lines are excluded',
+
+    avg_simul_chats => 'Average number of simultaneous chats held by the operator at a time',
+);
+
 
 $SPEC{parse_phplive_transcript} = {
     v => 1.1,
@@ -228,7 +248,7 @@ _
 }
 
 1;
-# ABSTRACT: Generate reports for PHPLive!
+# ABSTRACT: Generate reports for PHP Live!
 
 __END__
 
@@ -238,11 +258,11 @@ __END__
 
 =head1 NAME
 
-PHPLive::Report - Generate reports for PHPLive!
+PHPLive::Report - Generate reports for PHP Live!
 
 =head1 VERSION
 
-This document describes version 0.02 of PHPLive::Report (from Perl distribution PHPLive-Report), released on 2014-07-24.
+This document describes version 0.03 of PHPLive::Report (from Perl distribution PHPLive-Report), released on 2014-07-25.
 
 =head1 SYNOPSIS
 
@@ -254,62 +274,6 @@ PHP Live! is a web-based live chat/live support application,
 L<http://www.phplivesupport.com/>. As of this writing, version 4.4.7, the
 reports it generates are quite limited. This module produces additional reports
 for your PHP Live! installation.
-
-=head2 Legends
-
-Report items should be obvious from their names, but here is the explanation:
-
-=head3 Chat reports
-
-=over
-
-=item * pct_rated
-
-Percentage of chats that are rated by clients.
-
-=item * pct_has_transfers
-
-Percentage of chats that involve a transfer of operators.
-
-=item * avg_chat_duration
-
-Average chat duration, in B<minutes>.
-
-=item * avg_rating
-
-Average chat rating from clients. This is counted over chats that are rated
-only, of course.
-
-=item * num_chats
-
-Number of chats.
-
-=item * avg_msg_lines
-
-Average number of message lines in a single chat.
-
-=item * avg_msg_words
-
-Average number of words in a single chat. Note that the username prefix in
-message lines and non-message lines are excluded, so in this snippet of
-transcript:
-
- Foo has joined the chat.
- Foo: Hello!
- Bar: How may I help you?
-
-the number of words is 6, not 8.
-
-=item * avg_msg_lines
-
-Average number of characters in a single chat. Like in C<avg_msg_words>, the
-username prefix in message lines and non-message lines are excluded.
-
-=back
-
-=head3 Department reports
-
-=head3 Operator reports
 
 =head1 FUNCTIONS
 
@@ -351,6 +315,26 @@ Arguments ('*' denotes required arguments):
 Return value:
 
  (any)
+
+=head1 TODO
+
+=over
+
+=item * Add operator reports
+
+avg_simul_chats
+
+=item * Add department reports
+
+=item * Add report: monthly number of chats against hour of day
+
+With bar chart.
+
+=item * Add report: number of chats against day of week
+
+With bar chart.
+
+=back
 
 =head1 HOMEPAGE
 

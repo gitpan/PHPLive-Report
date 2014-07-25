@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Generate reports for PHPLive!",
+  "ABSTRACT" => "Generate reports for PHP Live!",
   "AUTHOR" => "Steven Haryanto <stevenharyanto\@gmail.com>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -27,7 +27,8 @@ my %WriteMakefileArgs = (
     "DateTime" => 0,
     "File::Slurp::Tiny" => 0,
     "Log::Any" => 0,
-    "Perinci::CmdLine::Any" => 0
+    "Perinci::CmdLine::Any" => 0,
+    "String::JS" => "0.02"
   },
   "TEST_REQUIRES" => {
     "File::Spec" => 0,
@@ -35,7 +36,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => "0.98"
   },
-  "VERSION" => "0.02",
+  "VERSION" => "0.03",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -52,6 +53,7 @@ my %FallbackPrereqs = (
   "IPC::Open3" => 0,
   "Log::Any" => 0,
   "Perinci::CmdLine::Any" => 0,
+  "String::JS" => "0.02",
   "Test::More" => "0.98"
 );
 

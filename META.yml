@@ -1,5 +1,5 @@
 ---
-abstract: 'Generate reports for PHPLive!'
+abstract: 'Generate reports for PHP Live!'
 author:
   - 'Steven Haryanto <stevenharyanto@gmail.com>'
 build_requires:
@@ -23,12 +23,13 @@ requires:
   File::Slurp::Tiny: '0'
   Log::Any: '0'
   Perinci::CmdLine::Any: '0'
+  String::JS: '0.02'
   perl: '5.010001'
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=PHPLive-Report
   homepage: https://metacpan.org/release/PHPLive-Report
   repository: git://github.com/sharyanto/perl-PHPLive-Report.git
-version: '0.02'
+version: '0.03'
 x_Dist_Zilla:
   perl:
     version: '5.018002'

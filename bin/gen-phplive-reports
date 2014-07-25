@@ -1,7 +1,7 @@
 #!perl
 
-our $DATE = '2014-07-24'; # DATE
-our $VERSION = '0.02'; # VERSION
+our $DATE = '2014-07-25'; # DATE
+our $VERSION = '0.03'; # VERSION
 
 use 5.010001;
 use strict;
@@ -9,6 +9,8 @@ use warnings;
 
 use File::Slurp::Tiny qw(write_file);
 use Perinci::CmdLine::Any;
+use PHPLive::Report qw(%reports %legends);
+use String::JS qw(encode_js_string);
 
 our %SPEC;
 $SPEC{gen_phplive_reports} = {
@@ -42,8 +44,15 @@ sub gen_phplive_reports {
     push @fres, "<html><head><title>PHP Live! Reports for $period</title>";
     push @fres, qq(<script type="text/javascript" src="jquery.js"></script>\n);
     push @fres, qq(<script type="text/javascript" src="jquery.tablesorter.js"></script>\n);
-    push @fres, q(<script>$(document).ready(function() { $("table").addClass("tablesorter").tablesorter(); });</script>)."\n";
     push @fres, qq(<link rel="stylesheet" href="themes/blue/style.css" type="text/css" media="print, projection, screen" />\n);
+    push @fres, q(<script>)."\n";
+    push @fres, q|  $(document).ready(function() {|."\n";
+    for my $k (sort keys %legends) {
+        push @fres, qq|    \$("th:contains(${\( encode_js_string($k, 2) )})").attr("title", ${\( encode_js_string($legends{$k}) )})|."\n";
+    }
+    push @fres, q(    $("table").addClass("tablesorter").tablesorter())."\n";
+    push @fres, q|  });|."\n";
+    push @fres, q(</script>)."\n";
     push @fres, "</head>\n";
     push @fres, "<body>\n";
     push @fres, "<h1>PHP Live! Reports for $period</h1>\n";
@@ -66,7 +75,7 @@ Perinci::CmdLine::Any->new(
     url => "/main/gen_phplive_reports",
 )->run;
 
-# ABSTRACT: Generate additional reports for PHPLive!
+# ABSTRACT: Generate reports for PHP Live!
 # PODNAME: gen-phplive-reports
 
 __END__
@@ -77,11 +86,11 @@ __END__
 
 =head1 NAME
 
-gen-phplive-reports - Generate additional reports for PHPLive!
+gen-phplive-reports - Generate reports for PHP Live!
 
 =head1 VERSION
 
-This document describes version 0.02 of gen-phplive-reports (from Perl distribution PHPLive-Report), released on 2014-07-24.
+This document describes version 0.03 of gen-phplive-reports (from Perl distribution PHPLive-Report), released on 2014-07-25.
 
 =head1 SYNOPSIS
 

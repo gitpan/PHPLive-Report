@@ -1,9 +1,9 @@
 NAME
-    PHPLive::Report - Generate reports for PHPLive!
+    PHPLive::Report - Generate reports for PHP Live!
 
 VERSION
-    This document describes version 0.02 of PHPLive::Report (from Perl
-    distribution PHPLive-Report), released on 2014-07-24.
+    This document describes version 0.03 of PHPLive::Report (from Perl
+    distribution PHPLive-Report), released on 2014-07-25.
 
 SYNOPSIS
     Use the included gen-phplive-reports to generate HTML report files.
@@ -14,56 +14,6 @@ DESCRIPTION
     reports it generates are quite limited. This module produces additional
     reports for your PHP Live! installation.
 
-  Legends
-    Report items should be obvious from their names, but here is the
-    explanation:
-
-   Chat reports
-    *   pct_rated
-
-        Percentage of chats that are rated by clients.
-
-    *   pct_has_transfers
-
-        Percentage of chats that involve a transfer of operators.
-
-    *   avg_chat_duration
-
-        Average chat duration, in minutes.
-
-    *   avg_rating
-
-        Average chat rating from clients. This is counted over chats that
-        are rated only, of course.
-
-    *   num_chats
-
-        Number of chats.
-
-    *   avg_msg_lines
-
-        Average number of message lines in a single chat.
-
-    *   avg_msg_words
-
-        Average number of words in a single chat. Note that the username
-        prefix in message lines and non-message lines are excluded, so in
-        this snippet of transcript:
-
-         Foo has joined the chat.
-         Foo: Hello!
-         Bar: How may I help you?
-
-        the number of words is 6, not 8.
-
-    *   avg_msg_lines
-
-        Average number of characters in a single chat. Like in
-        "avg_msg_words", the username prefix in message lines and
-        non-message lines are excluded.
-
-   Department reports
-   Operator reports
 FUNCTIONS
   gen_phplive_reports(%args) -> any
     Arguments ('*' denotes required arguments):
@@ -92,6 +42,21 @@ FUNCTIONS
     Return value:
 
      (any)
+
+TODO
+    *   Add operator reports
+
+        avg_simul_chats
+
+    *   Add department reports
+
+    *   Add report: monthly number of chats against hour of day
+
+        With bar chart.
+
+    *   Add report: number of chats against day of week
+
+        With bar chart.
 
 HOMEPAGE
     Please visit the project's homepage at
