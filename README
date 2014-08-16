@@ -2,8 +2,8 @@ NAME
     PHPLive::Report - Generate reports for PHP Live!
 
 VERSION
-    This document describes version 0.03 of PHPLive::Report (from Perl
-    distribution PHPLive-Report), released on 2014-07-25.
+    This document describes version 0.04 of PHPLive::Report (from Perl
+    distribution PHPLive-Report), released on 2014-08-16.
 
 SYNOPSIS
     Use the included gen-phplive-reports to generate HTML report files.

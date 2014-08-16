@@ -1,7 +1,7 @@
 package PHPLive::Report;
 
-our $DATE = '2014-07-25'; # DATE
-our $VERSION = '0.03'; # VERSION
+our $DATE = '2014-08-16'; # DATE
+our $VERSION = '0.04'; # VERSION
 
 use 5.010;
 use strict;
@@ -262,7 +262,7 @@ PHPLive::Report - Generate reports for PHP Live!
 
 =head1 VERSION
 
-This document describes version 0.03 of PHPLive::Report (from Perl distribution PHPLive-Report), released on 2014-07-25.
+This document describes version 0.04 of PHPLive::Report (from Perl distribution PHPLive-Report), released on 2014-08-16.
 
 =head1 SYNOPSIS
 
